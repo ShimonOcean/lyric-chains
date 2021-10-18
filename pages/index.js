@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { SearchIcon } from "@heroicons/react/outline"
 
 export default function Home() {
   return (
@@ -19,11 +20,17 @@ export default function Home() {
         <div>
 
         </div>
+        
       </header>
 
       {/* Body */}
       <form>
-
+        <div className='flex w-full mt-5 hover:shadow-lg focus-within:shadow-lg
+        max-w-md rounded-full border-gray-200 px-5 py-3 items-center sm:max-w-xl lg:max-w-2xl'> 
+          
+          <input type="text" className="flex-grow focus:outline-none" />
+          <SearchIcon className="h-5 mr-3 text-gray-500"/>
+        </div>
       </form>
 
     </div>
