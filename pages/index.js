@@ -2,8 +2,22 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { SearchIcon } from "@heroicons/react/outline"
 import Footer from '../components/Footer'
+import { useRef } from 'react';
+import { useRouter } from 'next/dist/client/router';
 
 export default function Home() {
+  const router = useRouter();
+  const searchInputRef = useRef(null);
+ 
+  const search = (e) => {
+    e.preventDefault();
+    const term = searchInputRef.current.value;
+
+    if (!term) return;
+
+    router.push(`/search?term=${term}`)
+  };
+
   return (
     <div className="flex flex-col items-center justify-center h-screen ">
       <Head>
@@ -19,7 +33,7 @@ export default function Home() {
         </div>
 
         <div>
-          <p className='text-center mt-10'>Generate lyrics from your favorite artists like _ or _, with the power of _</p>
+          <p className='text-center mt-10'>Generate lyrics from your favorite artists from Frank Ocean to Future, with the power of Markov Chains</p>
         </div>
         
       </header>
@@ -29,11 +43,16 @@ export default function Home() {
         <div className='flex w-full mt-5 hover:shadow-lg focus-within:shadow-lg
         max-w-md rounded-full border-gray-200 px-5 py-3 items-center sm:max-w-xl
          lg:max-w-2xl'> 
-          <input type="text" placeholder="Enter Artist Name" className="flex-grow focus:outline-none" />
+          <input 
+            ref={searchInputRef} 
+            type="text" 
+            placeholder="Enter Artist Name" 
+            className="flex-grow focus:outline-none" 
+          />
           <SearchIcon className="h-5 mr-3 text-gray-500"/>
         </div>
         <div className="mt-5">
-          <button className="btn bg-indigo-600 p-3 rounded-md ring-gray-200 text-sm text-white
+          <button onClick={search} className="btn bg-indigo-600 p-3 rounded-md ring-gray-200 text-sm text-white
           hover:ring-2 focus:outline-none active-ring-blue-300 hover:shadow-md">Generate New Lyrics</button>
         </div>
       </form>
