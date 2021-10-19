@@ -19,7 +19,7 @@ function Header() {
 
     return (
         <header className="sticky top-0 bg-white"> 
-        <div className="flex w-full p-6 items-center">
+        <div className="flex w-full p-6 items-center border-b">
             <div className='font-serif text-center text-xl text-indigo-600 font-semibold border-gray-200'>
                 <p className="link">generate lyrics</p>
             </div>
@@ -39,6 +39,9 @@ function Header() {
                 />
                 <button hidden type='submit' onClick={search}>Search</button>
             </form>
+            <div className="border-b-[1px] border-transparent">
+                
+            </div>
         </div>
 
 
