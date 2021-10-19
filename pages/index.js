@@ -49,7 +49,7 @@ export default function Home() {
             placeholder="Enter Artist Name" 
             className="flex-grow focus:outline-none" 
           />
-          <SearchIcon className="h-5 mr-3 text-gray-500"/>
+          <SearchIcon className="h-5 mr-3 text-gray-500 cursor-pointer transition duration-100 transform hover:scale-125" onClick={search}/>
         </div>
         <div className="mt-5">
           <button onClick={search} className="btn bg-indigo-600 p-3 rounded-md ring-gray-200 text-sm text-white
