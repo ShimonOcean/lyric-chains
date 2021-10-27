@@ -6,6 +6,10 @@ import { useRef } from 'react';
 import { useRouter } from 'next/dist/client/router';
 
 export default function Home() {
+  const {
+    geniusArtistTopTen,
+  } = require('./utils/geniusAPI.js')
+
   const router = useRouter();
   const searchInputRef = useRef(null);
  
@@ -17,6 +21,8 @@ export default function Home() {
 
     router.push(`/search?term=${term}`)
   };
+
+  geniusArtistTopTen('placeholder, always Drake')
 
   return (
     <div className="flex flex-col items-center justify-center h-screen ">

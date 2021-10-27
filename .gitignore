@@ -35,6 +35,6 @@ yarn-error.log*
 .vercel
 
 # testing
-/utils/apiplayground.js
+/pages/utils/apiplayground.js
 
 
