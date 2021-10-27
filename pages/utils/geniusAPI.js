@@ -1,26 +1,61 @@
 const axios = require('axios');
+const open = require('open');
+const fetch = require('fetch');
+const client_id = process.env.GENIUS_CLIENT_ID;
+const client_secret = process.env.GENIUS_CLIENT_SECRET;
 
+let params = {
+    client_id: client_id,
+    client_secret: client_secret,
+    response_type: "code",
+    scope: "me",
+};
 
+let endpoint = "https://api.genius.com/oauth/authorize?";
 
-const getURLResponse = (url) => {
-    const axiosResp = axios.get(url);
-    return axiosResp;
+const geniusArtistTopTen = async artist => {
+    endpoint = endpoint + new URLSearchParams(params);
+
+    open(endpoint)
+
+    params["code"] = process.env.GENIUS_API_KEY
+    params["grant_type"] = "authorization_code"
+
+    const access_token_url = "https://api.genius.com/oauth/token?"
+    let response = await fetch(access_token_url + new URLSearchParams(params), {
+        headers: { Accept: "application/json", method: "POST" },
+    });
+    let data = await response.json();
+    const access_token = data["access_token"]
+    console.log(access_token)
 }
 
-const geniusArtistTopTen = artist => {
-    return new Promise((res, rej) => {
-        getURLResponse(`api.genius.com/search?q=Drake`)
-            .then((response) => {
-                var result = response.data.response.sections[0].hits[0].result;
-                console.log(result)
-                res(result)
-            }).catch(err => {
-                console.log('Issue getting response');
-                rej(err);
-            })
-    })
-}
 
+// const getURLResponse = (url) => {
+//     const axiosResp = axios.get(url);
+//     return axiosResp;
+// }
+
+
+
+// const geniusArtistTopTen = artist => {
+//     return new Promise((res, rej) => {
+//         getURLResponse(`api.genius.com/search?q=Drake&access_token=GA0HZyW06leR5KRTWR0StPP18hbCpOJdVf4OX-fhOICf9-hmrZFgaOccEYCfqH8l`)
+//             .then((response) => {
+//                 var result = response.data.response.sections[0].hits[0].result;
+//                 console.log(response)
+//                 res(result)
+//             }).catch(err => {
+//                 console.log('Issue getting response');
+//                 rej(err);
+//             })
+//     })
+// }
+
+// const geniusArtistTopTen = async artist => {
+//     const response = await axios.get(`api.genius.com/search?q=Drake&access_token=GA0HZyW06leR5KRTWR0StPP18hbCpOJdVf4OX-fhOICf9-hmrZFgaOccEYCfqH8l`)
+//     console.log(response.data.response.sections[0].hits)
+// }
 // const geniusArtistTopTen = artist => {
 //     fetch(`api.genius.com/search?q=Drake&access_token=${process.env.GENIUS_API_KEY}`, {
         

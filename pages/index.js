@@ -21,7 +21,8 @@ export default function Home() {
 
     router.push(`/search?term=${term}`)
   };
-
+  var env = process.env.TEST_VARIABLE 
+  console.log(env);
   geniusArtistTopTen('placeholder, always Drake')
 
   return (
