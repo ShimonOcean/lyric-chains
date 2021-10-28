@@ -36,5 +36,5 @@ yarn-error.log*
 
 # testing
 /pages/utils/apiplayground.js
-
+/pages/utils/fetchapi.js
 

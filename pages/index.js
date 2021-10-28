@@ -4,11 +4,12 @@ import { SearchIcon } from "@heroicons/react/outline"
 import Footer from '../components/Footer'
 import { useRef } from 'react';
 import { useRouter } from 'next/dist/client/router';
+import { geniusArtistTopTen } from "./utils/geniusAPI";
 
 export default function Home() {
-  const {
-    geniusArtistTopTen,
-  } = require('./utils/geniusAPI.js')
+  // const {
+  //   authorizeClient,
+  // } = require('./utils/geniusAPI.js')
 
   const router = useRouter();
   const searchInputRef = useRef(null);
@@ -21,9 +22,9 @@ export default function Home() {
 
     router.push(`/search?term=${term}`)
   };
-  var env = process.env.TEST_VARIABLE 
-  console.log(env);
-  geniusArtistTopTen('placeholder, always Drake')
+
+  geniusArtistTopTen()
+  // authorizeClient()
 
   return (
     <div className="flex flex-col items-center justify-center h-screen ">

@@ -3,33 +3,47 @@ const open = require('open');
 const fetch = require('fetch');
 const client_id = process.env.GENIUS_CLIENT_ID;
 const client_secret = process.env.GENIUS_CLIENT_SECRET;
+const redirect_uri = "https://httpbin.org/anything";
 
-let params = {
-    client_id: client_id,
-    client_secret: client_secret,
-    response_type: "code",
-    scope: "me",
-};
-
-let endpoint = "https://api.genius.com/oauth/authorize?";
-
-const geniusArtistTopTen = async artist => {
+export const geniusArtistTopTen = () => {
+    let params = {
+        client_id: client_id,
+        redirect_uri: redirect_uri,
+        response_type: "code",
+        scope: "me",
+      };
+    
+    let endpoint = "https://api.genius.com/oauth/authorize?";
     endpoint = endpoint + new URLSearchParams(params);
-
-    open(endpoint)
-
-    params["code"] = process.env.GENIUS_API_KEY
-    params["grant_type"] = "authorization_code"
-
-    const access_token_url = "https://api.genius.com/oauth/token?"
-    let response = await fetch(access_token_url + new URLSearchParams(params), {
-        headers: { Accept: "application/json", method: "POST" },
-    });
-    let data = await response.json();
-    const access_token = data["access_token"]
-    console.log(access_token)
+    
+    open(endpoint);
 }
 
+
+
+// let params = {
+//     client_id: client_id,
+//     client_secret: client_secret,
+//     response_type: "code",
+//     scope: "me",
+// };
+
+// let endpoint = "https://api.genius.com/oauth/authorize?";
+
+// endpoint = endpoint + new URLSearchParams(params);
+
+// open(endpoint)
+
+// params["code"] = process.env.GENIUS_API_KEY
+// params["grant_type"] = "authorization_code"
+
+// const access_token_url = "https://api.genius.com/oauth/token?"
+// let response = await fetch(access_token_url + new URLSearchParams(params), {
+//     headers: { Accept: "application/json", method: "POST" },
+// });
+// let data = await response.json();
+// const access_token = data["access_token"]
+// console.log(access_token)
 
 // const getURLResponse = (url) => {
 //     const axiosResp = axios.get(url);
@@ -44,6 +58,7 @@ const geniusArtistTopTen = async artist => {
 //             .then((response) => {
 //                 var result = response.data.response.sections[0].hits[0].result;
 //                 console.log(response)
+//                 console.log(artist)
 //                 res(result)
 //             }).catch(err => {
 //                 console.log('Issue getting response');
@@ -63,7 +78,4 @@ const geniusArtistTopTen = async artist => {
 // }
 
 
-module.exports = {
-    geniusArtistTopTen,
-}
-
+export default geniusArtistTopTen;
