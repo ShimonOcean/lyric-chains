@@ -19,8 +19,6 @@ export const geniusArtistTopTen = () => {
     open(endpoint);
 }
 
-
-
 // let params = {
 //     client_id: client_id,
 //     client_secret: client_secret,

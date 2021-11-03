@@ -1,5 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+
+## Planning
+
+- [x] Structure of website, search bar, header, footer
+- [x] Connect search button press and Genius API auth query
+- [ ] Return from OAuth2, get redirect uri for actual query
+- [ ] With token from auth, we can now query Genius API freely
+- [ ] Recommend artists based on current user input
+- [ ] Short blurb on what app does below search bar
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 ## Getting Started
 
 First, run the development server:
@@ -33,10 +43,3 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-## Planning
-
-* Search bar, figure out how to use with Genius API 
-* Recommend artists based on current user input
-* Short blurb on what app does below search bar
-
-* On search, generate lyrics and display 
