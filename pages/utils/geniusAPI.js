@@ -19,18 +19,6 @@ export const geniusArtistTopTen = () => {
     open(endpoint);
 }
 
-// let params = {
-//     client_id: client_id,
-//     client_secret: client_secret,
-//     response_type: "code",
-//     scope: "me",
-// };
-
-// let endpoint = "https://api.genius.com/oauth/authorize?";
-
-// endpoint = endpoint + new URLSearchParams(params);
-
-// open(endpoint)
 
 // params["code"] = process.env.GENIUS_API_KEY
 // params["grant_type"] = "authorization_code"
@@ -62,16 +50,6 @@ export const geniusArtistTopTen = () => {
 //                 console.log('Issue getting response');
 //                 rej(err);
 //             })
-//     })
-// }
-
-// const geniusArtistTopTen = async artist => {
-//     const response = await axios.get(`api.genius.com/search?q=Drake&access_token=GA0HZyW06leR5KRTWR0StPP18hbCpOJdVf4OX-fhOICf9-hmrZFgaOccEYCfqH8l`)
-//     console.log(response.data.response.sections[0].hits)
-// }
-// const geniusArtistTopTen = artist => {
-//     fetch(`api.genius.com/search?q=Drake&access_token=${process.env.GENIUS_API_KEY}`, {
-        
 //     })
 // }
 
