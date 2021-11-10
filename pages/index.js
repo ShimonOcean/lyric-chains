@@ -23,7 +23,7 @@ export default function Home() {
     router.push(`/search?term=${term}`)
   };
 
-  // geniusArtistTopTen()
+  geniusArtistTopTen()
   // authorizeClient()
 
   return (

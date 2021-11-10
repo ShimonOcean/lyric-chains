@@ -17,6 +17,18 @@ export const geniusArtistTopTen = () => {
     endpoint = endpoint + new URLSearchParams(params);
     
     open(endpoint);
+
+    let drakeEndpoint = "https://genius.com/api/search/artist?q=Drake"
+    // let endpoint = "https://api.genius.com/oauth/authorize?"; 
+    // endpoint = endpoint + new URLSearchParams(params);
+    const res = fetch(drakeEndpoint)
+    const data = res.json()
+
+    if (!data) {
+      console.log('no data')
+    } else{
+      console.log(data)
+    }
 }
 
 
