@@ -19,9 +19,12 @@ class MarkovChain {
             throw new Error('No elements in Markov Chain')
         }
         const nextDict = this.chain[prev]
+        // If no next word in chain, assign
         if (nextDict == undefined) {
             const randIdx = randInt(Object.keys(this.chain).length)
             return Object.keys(this.chain)[randIdx]
+        } else {
+
         }
     }
 }
