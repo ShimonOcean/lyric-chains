@@ -1,11 +1,21 @@
 
 
-## Planning
 
+# Website Structure
 - [x] Structure of website, search bar, header, footer
+- [ ] Render Lyrics on /search endpoint reflecting API return/cache hit
+- [ ] Aesthetic fixes to homepage, i.e. spacing, colors, fonts, etc
+
+# Genius API
 - [x] Connect search button press and Genius API auth query
 - [ ] Return from OAuth2, get redirect uri for actual query
-- [ ] With token from auth, we can now query Genius API freely
+- [ ] User session should now be able to freely query any artist
+
+# Markov Chain
+- [x] Object structure for Markov Chain
+- [ ] Test chain on text files/in program lyrics
+
+# Other features
 - [ ] Recommend artists based on current user input
 - [ ] Short blurb on what app does below search bar
 
