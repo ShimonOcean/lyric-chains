@@ -19,6 +19,10 @@
 - [ ] Recommend artists based on current user input
 - [ ] Short blurb on what app does below search bar
 
+# What's (immediately) next
+- Figure out how to pass auth2.0 received token back into API call
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 ## Getting Started
 
